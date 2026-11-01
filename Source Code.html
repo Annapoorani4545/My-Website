@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Annapoorani Arunachalam | Finance Operations & Data Analytics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Sans:wght@400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F3F5FB;--surface:#FFFFFF;--ink:#0B1B3A;--muted:#566282;--line:#DCE1EE;--a1:#3B5BFF;--a2:#0FA98A;--a3:#E58A00;--a4:#C2410C;
+--t1:#E6EBFF;--t2:#DAF5EE;--t3:#FFF0D6;--t4:#FDE6DC;--ok:#0FA98A;--warn:#E58A00;--warnbg:#FFF0D6;
+--display:"Bricolage Grotesque","Segoe UI",Arial,sans-serif;--body:"DM Sans","Segoe UI",Arial,sans-serif;--mono:"DM Mono",Consolas,monospace;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A1226;--surface:#121C38;--ink:#EAF0FF;--muted:#9DAACB;--line:#25335A;--a1:#7C93FF;--a2:#3DE0BB;--a3:#FFB547;--a4:#FF8A5B;--t1:#18234A;--t2:#0F2E2E;--t3:#33260F;--t4:#341C14;--warnbg:#3A2A0C;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0A1226;--surface:#121C38;--ink:#EAF0FF;--muted:#9DAACB;--line:#25335A;--a1:#7C93FF;--a2:#3DE0BB;--a3:#FFB547;--a4:#FF8A5B;--t1:#18234A;--t2:#0F2E2E;--t3:#33260F;--t4:#341C14;--warnbg:#3A2A0C;color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--a3);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.05}
+/* hero (always dark) */
+.hero{position:relative;overflow:hidden;color:#EAF0FF;background:#08112B;
+ background-image:radial-gradient(60% 70% at 85% 10%,rgba(59,91,255,.55),transparent 60%),radial-gradient(50% 60% at 5% 95%,rgba(15,169,138,.45),transparent 60%),radial-gradient(35% 40% at 60% 100%,rgba(229,138,0,.30),transparent 70%)}
+.hero nav{display:flex;justify-content:space-between;align-items:center;height:64px}
+.hero nav b{font:800 18px var(--display)}
+.hero nav a{margin-left:22px;font-size:15px;text-decoration:none;color:#B9C6EA}
+.hero nav a:hover{color:#fff}
+.hgrid{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center;padding:56px 0 48px}
+h1{font-size:clamp(46px,8vw,92px);font-weight:800;letter-spacing:-.035em}
+.role{font:500 20px/1.4 var(--body);color:#C7D3F2;margin:24px 0 30px;max-width:30ch}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 22px;border-radius:999px;border:1.5px solid currentColor;font-weight:500;font-size:16px;text-decoration:none}
+.btn.fill{background:#3DE0BB;border-color:#3DE0BB;color:#06231D}
+.btn:hover{filter:brightness(1.08)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;border-top:1px solid rgba(255,255,255,.18);padding:24px 0 36px}
+.stats b{display:block;font:800 40px var(--display);color:#fff}
+.stats span{font-size:14px;color:#B9C6EA}
+/* invoice */
+.inv{position:relative;background:#fff;color:#0B1B3A;border-radius:14px;padding:22px;transform:rotate(2deg);box-shadow:0 30px 60px -20px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.4);overflow:hidden}
+.inv h2{font-size:18px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.inv h2 small{font:400 12px var(--body);color:#6B7794}
+.inv table{width:100%;border-collapse:collapse;margin:12px 0;font:400 13px var(--mono)}
+.inv th{font:500 12px var(--body);color:#6B7794;text-align:left;padding:5px;border-bottom:1px solid #DCE1EE}
+.inv td{padding:8px 5px;border-bottom:1px solid #EEF1F8}
+.inv .n{text-align:right}
+.inv tr.f.on{background:#FFF0D6}
+.tag{display:none;font:500 11px var(--body);color:#B45309;margin-left:6px}
+.inv tr.f.on .tag{display:inline}
+.inv .foot{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:44px}
+#msg{font-size:13px;color:#566282}
+#msg.done{color:#0B7A6B;font-weight:500}
+.inv button{font:500 14px var(--body);padding:9px 16px;border-radius:999px;border:0;background:#3B5BFF;color:#fff;cursor:pointer;white-space:nowrap}
+.scan{position:absolute;left:0;right:0;top:0;height:3px;background:#3DE0BB;box-shadow:0 0 18px 6px rgba(61,224,187,.5);opacity:0;pointer-events:none}
+.scan.go{animation:sweep 1.1s ease-in-out}
+@keyframes sweep{0%{top:0;opacity:1}100%{top:100%;opacity:1}}
+.scroll{overflow-x:auto}
+/* sections */
+section{padding:84px 0}
+h2.t{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.025em;margin-bottom:40px;max-width:18ch}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card{border-radius:20px;padding:28px;background:var(--surface);border:1px solid var(--line)}
+.card h3{font-size:22px;margin-bottom:10px}
+.card p{margin:0;color:var(--muted)}
+.c1{background:var(--t1)}.c2{background:var(--t2)}.c3{background:var(--t3)}.c4{background:var(--t4)}
+.c1,.c2,.c3,.c4{border-color:transparent}
+.c1 h3{color:var(--a1)}.c2 h3{color:var(--a2)}.c3 h3{color:var(--a3)}.c4 h3{color:var(--a4)}
+.card.wide{grid-column:1/-1;display:grid;grid-template-columns:1fr 1.4fr;gap:28px;align-items:center}
+.card.wide h3{font-size:30px}
+.co{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;margin:-12px 0 36px;color:var(--muted)}
+.co b{font:800 24px var(--display);color:var(--ink)}
+/* projects */
+.proj{display:flex;flex-direction:column;padding:0;overflow:hidden}
+.proj svg{display:block;width:100%;height:150px}
+.proj div.b{padding:24px 26px 26px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.chips span{font:400 12px var(--mono);padding:3px 10px;border-radius:999px;background:var(--surface);color:var(--ink)}
+.more{margin-top:28px}
+.more a{font-weight:500;color:var(--a1)}
+/* background */
+.edu{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:44px}
+.edu .yr{font:800 44px var(--display);letter-spacing:-.03em;margin-bottom:8px}
+.edu h3{font-size:19px;margin-bottom:6px}
+.edu p{font-size:15px}
+.sk{display:grid;grid-template-columns:150px 1fr;gap:14px 24px;align-items:center}
+.sk b{font:800 18px var(--display)}
+.sk div{display:flex;flex-wrap:wrap;gap:8px}
+.sk span{padding:5px 14px;border-radius:999px;font-size:14px}
+.s1 span{background:var(--t1);color:var(--a1)}.s2 span{background:var(--t2);color:var(--a2)}.s3 span{background:var(--t3);color:var(--a3)}.s4 span{background:var(--t4);color:var(--a4)}
+/* contact (always dark) */
+.contact{color:#EAF0FF;background:#08112B;background-image:radial-gradient(50% 80% at 90% 0%,rgba(59,91,255,.5),transparent 60%),radial-gradient(40% 70% at 0% 100%,rgba(15,169,138,.4),transparent 60%)}
+.contact h2{font-size:clamp(36px,6vw,68px);font-weight:800;letter-spacing:-.03em;max-width:15ch;margin-bottom:20px}
+.contact p{font-size:20px;color:#C7D3F2;max-width:38ch;margin:0 0 30px}
+.contact .foot{margin-top:60px;font-size:14px;color:#9DAACB}
+@media (max-width:860px){
+ .hgrid,.card.wide,.sk,.grid2,.edu{grid-template-columns:1fr}
+ .stats{grid-template-columns:1fr 1fr}
+ .hgrid{gap:40px;padding-top:28px}
+ .inv{transform:none}
+ .hero nav a:not(.keep){display:none}
+ section{padding:60px 0}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.scan.go{animation:none}}
+</style>
+</head>
+<body>
+<header class="hero" id="top">
+<div class="wrap">
+ <nav><b>Annapoorani A.</b><span><a href="#work">Work</a><a href="#projects">Projects</a><a href="#about">Background</a><a class="keep" href="#contact">Contact</a></span></nav>
+ <div class="hgrid">
+  <div>
+   <h1>Annapoorani Arunachalam</h1>
+   <p class="role">Finance operations and data analytics. I run billing for a global workforce and build the models that catch what people miss.</p>
+   <div class="btns"><a class="btn fill" href="#projects">See my projects</a><a class="btn" href="#contact">Get in touch</a></div>
+  </div>
+  <div class="inv" aria-label="Interactive billing check">
+   <div class="scan" id="scan"></div>
+   <h2>Timesheet billing check <small>sample data</small></h2>
+   <div class="scroll"><table>
+    <thead><tr><th>Consultant</th><th class="n">Hrs</th><th class="n">Rate</th><th class="n">Invoiced</th></tr></thead>
+    <tbody>
+     <tr><td>A. Rao</td><td class="n">40</td><td class="n">60</td><td class="n">2,400</td></tr>
+     <tr class="f"><td>M. Das<span class="tag">rate mismatch</span></td><td class="n">32</td><td class="n">55</td><td class="n">2,080</td></tr>
+     <tr><td>S. Iyer</td><td class="n">36</td><td class="n">60</td><td class="n">2,160</td></tr>
+     <tr class="f"><td>S. Iyer<span class="tag">duplicate</span></td><td class="n">36</td><td class="n">60</td><td class="n">2,160</td></tr>
+     <tr class="f"><td>K. Nair<span class="tag">unbilled hrs</span></td><td class="n">38</td><td class="n">60</td><td class="n">1,800</td></tr>
+    </tbody></table></div>
+   <div class="foot"><span id="msg">5 invoice lines waiting for review.</span><button id="run" type="button">Run check</button></div>
+  </div>
+ </div>
+ <div class="stats">
+  <div><b>5</b><span>billing models managed</span></div>
+  <div><b>3</b><span>systems: Unit4, Salesforce, UKG</span></div>
+  <div><b>4</b><span>finance and AI projects</span></div>
+  <div><b>8</b><span>person engagement committee I co-founded</span></div>
+ </div>
+</div>
+</header>
+
+<main>
+<section id="work"><div class="wrap">
+ <h2 class="t">Keeping a global company billed correctly</h2>
+ <div class="co"><b>Resillion</b><span>Finance Business Operations Graduate, Aug 2025 to present. A global AI-powered quality engineering and cybersecurity firm.</span></div>
+ <div class="grid2">
+  <div class="card c1 wide"><h3>Billing, AR and resource planning</h3><p>I own invoicing, receivables and resource planning across multiple entities and billing models: fixed price, T&amp;M, prepaid and subscription, anchored on timesheet-based billing.</p></div>
+  <div class="card c2"><h3>Month-end and core finance</h3><p>Timesheet and approval follow-ups for an accurate, on-time close. Trained in O2C, cash applications, AP and GL, and helped set up the global shared-services Core Finance team.</p></div>
+  <div class="card c3"><h3>Process and automation</h3><p>Built SOPs, an intranet page and a ticketing system for a new, confidential support function, plus an AI agent that answers routine timesheet queries.</p></div>
+  <div class="card c4"><h3>Stakeholders and systems</h3><p>I present to executive teams and townhalls, and work with Finance, IT, HR, Sales and ERP Tech across global offices.</p></div>
+  <div class="card c1"><h3>Leadership</h3><p>Onboarded and trained a new teammate end to end. Founding member of the Employee Engagement Committee, hosting events and driving engagement for remote staff.</p></div>
+ </div>
+</div></section>
+
+<section id="projects" style="padding-top:0"><div class="wrap">
+ <h2 class="t">Projects that turn finance data into decisions</h2>
+ <div class="grid2">
+  <div class="card proj c1">
+   <svg viewBox="0 0 400 150" role="img" aria-label="Ageing bar chart"><g fill="#7C93FF"><rect x="40" y="70" width="46" height="70" rx="6"/><rect x="110" y="50" width="46" height="90" rx="6" opacity=".85"/><rect x="180" y="85" width="46" height="55" rx="6" opacity=".7"/><rect x="250" y="105" width="46" height="35" rx="6" opacity=".55"/><rect x="320" y="120" width="46" height="20" rx="6" opacity=".4"/></g><path d="M63 40 L133 22 L203 52 L273 78 L343 100" fill="none" stroke="#E58A00" stroke-width="3" stroke-linecap="round"/></svg>
+   <div class="b"><h3>Late-payment risk model and AR dashboard</h3><p>Predicts which invoices will be paid late, explains why with SHAP, and shows ageing and DSO in Power BI.</p><div class="chips"><span>XGBoost</span><span>SHAP</span><span>Power BI</span></div></div></div>
+  <div class="card proj c3">
+   <svg viewBox="0 0 400 150" role="img" aria-label="Scatter plot with outliers"><g fill="#E58A00" opacity=".6"><circle cx="60" cy="90" r="6"/><circle cx="100" cy="75" r="6"/><circle cx="140" cy="95" r="6"/><circle cx="180" cy="70" r="6"/><circle cx="220" cy="88" r="6"/><circle cx="260" cy="78" r="6"/><circle cx="300" cy="92" r="6"/></g><circle cx="340" cy="28" r="9" fill="#C2410C"/><circle cx="120" cy="130" r="9" fill="#C2410C"/><circle cx="340" cy="28" r="18" fill="none" stroke="#C2410C" stroke-width="2"/><circle cx="120" cy="130" r="18" fill="none" stroke="#C2410C" stroke-width="2"/></svg>
+   <div class="b"><h3>Invoice and billing anomaly detection</h3><p>Flags unbilled hours, rate mismatches and duplicate invoices before they reach a client.</p><div class="chips"><span>Python</span><span>Anomaly detection</span></div></div></div>
+  <div class="card proj c2">
+   <svg viewBox="0 0 400 150" role="img" aria-label="Chat bubbles"><rect x="30" y="22" width="190" height="42" rx="18" fill="#3DE0BB" opacity=".35"/><rect x="180" y="76" width="190" height="54" rx="18" fill="#0FA98A"/><rect x="200" y="92" width="120" height="7" rx="3.5" fill="#fff" opacity=".9"/><rect x="200" y="106" width="85" height="7" rx="3.5" fill="#fff" opacity=".6"/><rect x="48" y="36" width="110" height="7" rx="3.5" fill="#0FA98A"/></svg>
+   <div class="b"><h3>AI finance-ops assistant</h3><p>An LLM agent that answers billing and timesheet process questions straight from the team’s documentation.</p><div class="chips"><span>LLM agents</span><span>Prompt engineering</span></div></div></div>
+  <div class="card proj c4">
+   <svg viewBox="0 0 400 150" role="img" aria-label="Transaction flow with flagged node"><g stroke="#FF8A5B" stroke-width="3" fill="none"><path d="M85 75 H150 M230 75 H295"/></g><circle cx="60" cy="75" r="25" fill="#FF8A5B" opacity=".5"/><circle cx="190" cy="75" r="36" fill="#C2410C"/><circle cx="190" cy="75" r="48" fill="none" stroke="#C2410C" stroke-width="2" stroke-dasharray="5 5"/><circle cx="330" cy="75" r="25" fill="#FF8A5B" opacity=".5"/></svg>
+   <div class="b"><h3>AML/KYC transaction monitoring</h3><p>A prototype that combines rules and machine learning to flag suspicious synthetic transactions.</p><div class="chips"><span>RegTech</span><span>Machine learning</span></div></div></div>
+ </div>
+ <p class="more"><a href="https://github.com/Annapoorani4545">See the code on GitHub</a></p>
+</div></section>
+
+<section id="about" style="padding-top:0"><div class="wrap">
+ <h2 class="t">Finance, data and AI, studied together</h2>
+ <div class="edu">
+  <div class="card c1"><div class="yr" style="color:var(--a1)">2026</div><h3>IIMBx FinTech Certificate</h3><p>IIM Bangalore. Strategy, finance and accounting, lending, payments, WealthTech, RegTech.</p></div>
+  <div class="card c2"><div class="yr" style="color:var(--a2)">2025</div><h3>BS Data Science</h3><p>IIT Madras, 2021 to 2025.</p></div>
+  <div class="card c3"><div class="yr" style="color:var(--a3)">2024</div><h3>BA Economics, Media Studies, Political Science</h3><p>Christ University. Triple major, Dean’s List 2023 to 24.</p></div>
+ </div>
+ <div class="sk">
+  <b>Finance</b><div class="s1"><span>Billing</span><span>Accounts receivable</span><span>O2C</span><span>Month-end close</span><span>Internal controls</span><span>Credit risk</span></div>
+  <b>Data</b><div class="s2"><span>Excel</span><span>SQL</span><span>Python</span><span>Power BI</span><span>Tableau</span><span>Predictive modelling</span></div>
+  <b>AI</b><div class="s3"><span>LLMs</span><span>AI agents</span><span>Prompt engineering</span><span>Workflow automation</span><span>Responsible AI</span></div>
+  <b>Working style</b><div class="s4"><span>Process improvement</span><span>SOP writing</span><span>Executive presentations</span><span>Stakeholder management</span></div>
+ </div>
+</div></section>
+</main>
+
+<section id="contact" class="contact"><div class="wrap">
+ <h2>Let’s talk finance, data and automation</h2>
+ <p>Open to Associate and Analyst roles in advisory, analytics and financial services.</p>
+ <div class="btns">
+  <a class="btn fill" href="mailto:annapoorani4545.official@gmail.com">Email me</a>
+  <a class="btn" href="https://www.linkedin.com/in/annapoorani-a-6153b2276/">LinkedIn</a>
+  <a class="btn" href="https://github.com/Annapoorani4545">GitHub</a>
+ </div>
+ <div class="foot">Bangalore, India</div>
+</div></section>
+
+<script>
+(function(){
+ var btn=document.getElementById('run'),msg=document.getElementById('msg'),sc=document.getElementById('scan'),rows=document.querySelectorAll('.inv tr.f'),on=false;
+ btn.addEventListener('click',function(){
+  on=!on;
+  if(on){sc.classList.remove('go');void sc.offsetWidth;sc.classList.add('go');}
+  setTimeout(function(){rows.forEach(function(r){r.classList.toggle('on',on)});},on?500:0);
+  btn.textContent=on?'Reset':'Run check';
+  msg.textContent=on?'3 of 5 lines flagged for review.':'5 invoice lines waiting for review.';
+  msg.className=on?'done':'';
+ });
+})();
+</script>
+</body>
+</html>
